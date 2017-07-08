@@ -76,10 +76,7 @@ public class PerfectMaze
 			for (int neighbour = 0; neighbour < neighbours.size(); neighbour++)
 			{
 				//if the neighbor is a pathway it is open and vice versa
-				if (neighbours.get(neighbour).getID().equals("."))
-					open = true;
-				else 
-					open = false;
+				open = neighbours.get(neighbour).getID().equals(".");
 				//if the neighbor is a pathway/is open then continue
 				if (open == true)
 				{
@@ -158,10 +155,7 @@ public class PerfectMaze
 			neighbours = map[x][y].neighborCells(getMap(), getXSize(), getYSize());
 			for (int neighbour = 0; neighbour < neighbours.size(); neighbour++)
 			{
-				if (neighbours.get(neighbour).getID().equals("."))
-					open = true;
-				else 
-					open = false;
+				open = neighbours.get(neighbour).getID().equals(".");
 				
 				if (open == true)
 				{
@@ -313,7 +307,7 @@ public class PerfectMaze
 		//repeat while the list of carved cells/tree is not empty and the currentlySelected cell still has neighbors
 		while (tree.size()>0 && currentCell.neighborCells(map, getXSize(), getYSize()).size() > 0)
 		{
-			//if there is still cells in the tree currentCell becomes the mosgt recent carved cell
+			//if there is still cells in the tree currentCell becomes the most recent carved cell
 			if (tree.size()>0)
 				currentCell = tree.get(tree.size()-1);
 			//neighbors become the neighbors of the currentCell
